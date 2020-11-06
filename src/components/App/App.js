@@ -18,7 +18,6 @@ class App extends Component {
         <Route exact path="/addMovie" component={AddMovie}/>
           {/* ADD PAGES! */}
         </Router>
-        <p>Empty Page</p>
         </div>
     );
   }
