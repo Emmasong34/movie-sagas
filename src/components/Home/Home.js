@@ -4,7 +4,9 @@ import {connect} from 'react-redux';
 class Home extends Component {
     render(){
         return(
+            <div>
             console.log('in home component')
+            </div>
         )
     }
 }
