@@ -4,9 +4,9 @@ import {connect} from 'react-redux';
 
 class Home extends Component {
 
-state = {
-    movieArray: []
-}
+// state = {
+//     movieArray: []
+// }
 
 
 componentDidMount = () => {
@@ -14,24 +14,16 @@ componentDidMount = () => {
 }
 
 getMovies = () => {
-    axios({
-        method: 'GET',
-        url: '/api/genre'
-    }).then((response) => {
-        console.log(response.data);
-        this.setState({
-            movieArray: response.data
-        });
-        }).catch((error) => {
-            console.log(error)
-    })
+    this.props.dispatch({ type: 'GET_MOVIES' })
 }
+
 
     render(){
         return(
             <div>
-            {this.state.movieArray.map((poster) => {
-                return <button><img src={poster.poster}/></button>
+                {/* {JSON.stringify.reduxState.movies} */}
+            {this.props.reduxState.movies.map((movie) => {
+                return <button><img src={movie.poster}/>{movie.description}</button>
             })}
             </div>
         )
