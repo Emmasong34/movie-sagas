@@ -11,7 +11,7 @@ class Details extends Component {
     render(){
         return(
             <div>
-            // console.log('in details component')
+            {/* // console.log('in details component') */}
             <button onClick={this.changePageBack}>Back To Home</button>
             </div>
         )

@@ -11,7 +11,7 @@ class AddMovie extends Component {
     render(){
         return(
             <div>
-            // console.log('in addmovie component')
+            {/* // console.log('in addmovie component') */}
             <button >Save</button>
             <button onClick={this.changePageBack}>Cancel</button>
             </div>
