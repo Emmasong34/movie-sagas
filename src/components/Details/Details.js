@@ -20,15 +20,8 @@ class Details extends Component {
     render(){
         return(
             <div>
-            {/* // console.log('in details component') */}
-            <div className="detailsDisplay">
-                {/* JSON.stringify is for testing purposes */}
-                {/* {JSON.stringify.reduxState.genres} */}
-            {this.props.reduxState.genres.map((genre) => {
-                return <p>{genre.title}</p>
-                
-            })}
-            </div>
+         
+            
             <button onClick={this.changePageBack}>Back To Home</button>
             </div>
         )
