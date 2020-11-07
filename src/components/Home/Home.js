@@ -23,7 +23,10 @@ getMovies = () => {
             <div>
                 {/* {JSON.stringify.reduxState.movies} */}
             {this.props.reduxState.movies.map((movie) => {
-                return <button><img src={movie.poster}/>{movie.description}</button>
+                return <button>
+                   <h2> {movie.title}</h2>
+                    <img src={movie.poster}/>
+                    </button>
             })}
             </div>
         )
