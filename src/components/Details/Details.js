@@ -21,7 +21,15 @@ class Details extends Component {
         return(
             <div>
          
-            
+         {this.props.reduxState.genres.map((genre) => {
+                return <p  key={genre.name} >
+                   {genre.title}
+                   {genre.name}
+                    {/* <img className="image" src={movie.poster}/> */}
+                    </p>
+            })}
+
+
             <button onClick={this.changePageBack}>Back To Home</button>
             </div>
         )
