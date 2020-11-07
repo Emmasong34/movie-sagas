@@ -20,12 +20,14 @@ getMovies = () => {
 
     render(){
         return(
-            <div>
+            <div className="poster">
+                {/* this is for testing purposes */}
                 {/* {JSON.stringify.reduxState.movies} */}
             {this.props.reduxState.movies.map((movie) => {
-                return <button>
+                return <button className="button">
                    <h2> {movie.title}</h2>
-                    <img src={movie.poster}/>
+                    <img className="image" src={movie.poster}/>
+                    
                     </button>
             })}
             </div>
