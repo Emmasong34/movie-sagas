@@ -4,10 +4,6 @@ import {connect} from 'react-redux';
 
 class Home extends Component {
 
-// state = {
-//     movieArray: []
-// }
-
 
 componentDidMount = () => {
     this.getMovies();
@@ -18,16 +14,16 @@ getMovies = () => {
 }
 
 
+
     render(){
         return(
-            <div className="poster">
-                {/* this is for testing purposes */}
+            <div className="posterDisplay">
+                {/* JSON.stringify is for testing purposes */}
                 {/* {JSON.stringify.reduxState.movies} */}
             {this.props.reduxState.movies.map((movie) => {
                 return <button className="button">
-                   <h2> {movie.title}</h2>
+                   <h2>{movie.title}</h2>
                     <img className="image" src={movie.poster}/>
-                    
                     </button>
             })}
             </div>

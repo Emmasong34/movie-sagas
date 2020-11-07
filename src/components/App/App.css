@@ -23,15 +23,6 @@
   to { transform: rotate(360deg); }
 }
 
-.poster {
- display: inline-flex;
- flex-direction: row;
- flex-wrap: wrap;
- justify-content: center;
- padding: 20px;
- margin: 20px;
- 
-}
 
 .button {
   width: 300px;
