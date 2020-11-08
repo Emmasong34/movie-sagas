@@ -31,24 +31,23 @@ goToAddMovie = () => {
 }
 
 handleClickAdd = () => {
-  console.log('clicked')
-  this.goToAddMovie();
+    console.log('clicked')
+    this.goToAddMovie();
 }
     render(){
         return(
             <>
-            <div> <button onClick={this.handleClickAdd}>add movie</button></div>
-            <div className="posterDisplay">
-                {/* <h2><button onClick={this.handleClick}>Add Movie</button></h2> */}
-                {/* JSON.stringify is for testing purposes */}
-                {/* {JSON.stringify.reduxState.movies} */}
-            {this.props.reduxState.movies.map((movie) => {
-                return <button className="button" key={movie.title} onClick={() => {this.handleClick(movie)}}>
-                   <h2>{movie.title}</h2>
-                    <img className="image" src={movie.poster}/>
-                    </button>
-            })}
-            </div>
+                <div> <button onClick={this.handleClickAdd}>add movie</button></div>
+                <div className="posterDisplay">
+                    {/* JSON.stringify is for testing purposes */}
+                    {/* {JSON.stringify.reduxState.movies} */}
+                        {this.props.reduxState.movies.map((movie) => {
+                            return <button className="button" key={movie.title} onClick={() => {this.handleClick(movie)}}>
+                    <h2>{movie.title}</h2>
+                        <img className="image" src={movie.poster}/>
+                        </button>
+                    })}
+                </div>
             </>
         )
     }

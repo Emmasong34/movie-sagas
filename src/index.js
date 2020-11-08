@@ -23,21 +23,21 @@ function* rootSaga() {
 function* getMovies() {
     try {
         const movieArray = yield axios.get('/api/movie');
-        console.log('movieArray.data:', movieArray.data)
-        yield put({ type: 'SET_MOVIES', payload: movieArray.data });
-    } catch (error) {
-        console.log('error getting movies from DB', error);
+                    console.log('movieArray.data:', movieArray.data)
+                yield put({ type: 'SET_MOVIES', payload: movieArray.data });
+            } catch (error) {
+                    console.log('error getting movies from DB', error);
     }
 }
 
 function* getMovieDetails(movieClicked) {
     console.log('movieClicked.id', movieClicked.payload.id)
-     try {
-         const genreArray = yield axios.get(`/api/genre/${movieClicked.payload.id}`);
-        console.log('in getMovieDetails:')
-         yield put({ type: 'SET_GENRES', payload: genreArray.data });
-     } catch (error) {
-       console.log('error getting genres from DB', error);
+        try {
+            const genreArray = yield axios.get(`/api/genre/${movieClicked.payload.id}`);
+                console.log('in getMovieDetails:')
+            yield put({ type: 'SET_GENRES', payload: genreArray.data });
+        } catch (error) {
+                console.log('error getting genres from DB', error);
     }
 }
 
@@ -47,7 +47,7 @@ function* addMovie (action){
 }
 
 function* fetchGenres (){
-    const genreList = yield axios.get('/api/genre');
+        const genreList = yield axios.get('/api/genre');
     yield put({type: 'SET_GENRES', payload: genreList.data})
 }
 
