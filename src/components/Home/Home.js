@@ -30,15 +30,16 @@ goToAddMovie = () => {
     this.props.history.push('/addMovie');
 }
 
-handleClick = () => {
+handleClickAdd = () => {
   console.log('clicked')
   this.goToAddMovie();
 }
     render(){
         return(
-            
+            <>
+            <div> <button onClick={this.handleClickAdd}>add movie</button></div>
             <div className="posterDisplay">
-                <h2><button onClick={this.handleClick}>Add Movie</button></h2>
+                {/* <h2><button onClick={this.handleClick}>Add Movie</button></h2> */}
                 {/* JSON.stringify is for testing purposes */}
                 {/* {JSON.stringify.reduxState.movies} */}
             {this.props.reduxState.movies.map((movie) => {
@@ -48,6 +49,7 @@ handleClick = () => {
                     </button>
             })}
             </div>
+            </>
         )
     }
 }

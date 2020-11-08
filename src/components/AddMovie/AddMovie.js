@@ -8,11 +8,6 @@ class AddMovie extends Component {
         this.props.history.push('/');
     }
 
-//     an input field (for the movie title)
-// an input field (for the movie poster image URL))
-// a textarea (for the movie description)
-// a dropdown (for the genres)
-
     render(){
         return(
             <>
@@ -21,18 +16,21 @@ class AddMovie extends Component {
           
             </div>
             
-            <form>
+            <form className="form">
             {/* <input>Movie title:</input> */}
             {/* <input>Movie poster:</input> */}
-            <label for="title">Movie title:</label>
+            <label className="title">Movie title:</label>
             <input type="text" id="movieTitle" name="title"></input>
             <br></br>
-            <label for="poster">Movie poster:</label>
+
+            <label className="poster">Movie poster:</label>
             <input type="text" id="moviePoster" name="poster"></input>
             <br></br>
-            <textarea>Movie description:</textarea>
+
+            <textarea className="description">Movie description:</textarea>
             <br></br>
-            <label for="genres">Choose a genre:</label>
+
+            <label className="genres">Choose a genre: </label>
             <select name="genres" id="genre">
                 <option value="adventure">Adventure</option>
                 <option value="animated">Animated</option>
@@ -49,6 +47,7 @@ class AddMovie extends Component {
                 <option value="superhero">Superhero</option>
             </select>
             <br></br>
+
             <button >Save</button>
             <button onClick={this.changePageBack}>Cancel</button>
             </form>
