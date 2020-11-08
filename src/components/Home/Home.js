@@ -25,9 +25,20 @@ handleClick = (movieClicked) => {
     this.goToDetails();
 }
 
+goToAddMovie = () => {
+    console.log('go to addMovie page');
+    this.props.history.push('/addMovie');
+}
+
+handleClick = () => {
+  console.log('clicked')
+  this.goToAddMovie();
+}
     render(){
         return(
+            
             <div className="posterDisplay">
+                <h2><button onClick={this.handleClick}>Add Movie</button></h2>
                 {/* JSON.stringify is for testing purposes */}
                 {/* {JSON.stringify.reduxState.movies} */}
             {this.props.reduxState.movies.map((movie) => {
