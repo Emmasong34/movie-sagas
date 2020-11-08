@@ -3,15 +3,6 @@ import {connect} from 'react-redux';
 
 class Details extends Component {
 
-    // componentDidMount = () => {
-    //     this.getGenres();
-    // }
-    
-    // getGenres = () => {
-    //     this.props.dispatch({ type: 'GET_GENRES' })
-    // }
-
-
     changePageBack = () => {
         console.log('back to home');
         this.props.history.push('/');
@@ -27,7 +18,6 @@ class Details extends Component {
                    <img className="image" src={movie.poster}/>
                    <p>{movie.name}</p>
                    <p>{movie.description}</p>
-                    {/* <img className="image" src={movie.poster}/> */}
                     </div>
             })}
 
