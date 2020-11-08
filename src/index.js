@@ -16,6 +16,7 @@ import createSagaMiddleware from 'redux-saga';
 function* rootSaga() {
     yield takeEvery('GET_MOVIES', getMovies);
     yield takeEvery('GET_MOVIE_DETAILS', getMovieDetails);
+    yield takeEvery('ADD_MOVIE', addMovie);
 }
 
 function* getMovies() {
@@ -37,6 +38,11 @@ function* getMovieDetails(movieClicked) {
      } catch (error) {
        console.log('error getting genres from DB', error);
     }
+}
+
+function* addMovie (action){
+    // console.log('in addMovie, action.payload.newMovie:', action.payload.newMovie)
+    yield axios.post('/api/movie', action.payload.newMovie );
 }
 
 // Create sagaMiddleware
