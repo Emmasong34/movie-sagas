@@ -3,8 +3,8 @@ import {connect} from 'react-redux';
 
 class AddMovie extends Component {
 
-    componentDidMount{
-        fetchGrenres();
+    componentDidMount = () => {
+        this.fetchGenres();
     }
 
     changePageBack = () => {
@@ -36,6 +36,10 @@ class AddMovie extends Component {
         });
     }
 
+    fetchGenres = () => {
+        this.props.dispatch({type: 'FETCH_GENRES'})
+    }
+
     render(){
         return(
             <>
@@ -44,35 +48,36 @@ class AddMovie extends Component {
             <form className="form">
            
             <label className="title">Movie title:</label>
-            <input type="text" id="newMovieTitle" name="title" 
-             onChange={(event) => this.handleChange('title', event)}></input>
+                <input type="text" id="newMovieTitle" name="title" 
+                onChange={(event) => this.handleChange('title', event)}></input>
             <br></br>
 
             <label className="poster">Movie poster:</label>
-            <input type="text" id="newMoviePoster" name="poster" 
-             onChange={(event) => this.handleChange('poster', event)}></input>
+                <input type="text" id="newMoviePoster" name="poster" 
+                onChange={(event) => this.handleChange('poster', event)}></input>
             <br></br>
 
-            {/* <textarea className="description" ></textarea>
-            <br></br>
+            <textarea className="description" 
+                onChange={(event) => this.handleChange('description', event)}></textarea>
+            <br></br> 
  
+
+            <div>
             <label className="genres">Choose a genre: </label>
-            <select name="genres" id="genre">
-                <option value="id">Adventure</option> keyname event handlechange
-                <option value="animated">Animated</option>
-                <option value="biographical">Biographical</option>
-                <option value="comedy">Comedy</option>
-                <option value="disaster">Disaster</option>
-                <option value="drama">Drama</option>
-                <option value="epic">Epic</option>
-                <option value="fantasy">Fantasy</option>
-                <option value="musical">Musical</option>
-                <option value="romantic">Romantic</option>
-                <option value="science fiction">Science Fiction</option>
-                <option value="space-opera">Space-Opera</option>
-                <option value="superhero">Superhero</option>
-            </select>
-            <br></br> */}
+            <select 
+                name="genres" id="genre" 
+                onChange={(event) => this.handleChange('genre_id', event)}
+            >
+                <option value=''>Select a genre: </option>
+            {this.props.reduxState.genres.map((genre) => {
+                return <option  value={genre.id} >{genre.name}</option>
+                
+            })}
+            </select>  
+               
+            
+            <br></br> 
+            </div>
 
             <button onClick={this.saveMovie}>Save</button>
             

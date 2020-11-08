@@ -39,4 +39,16 @@ router.post('/', (req, res) => {
   })
 })
 
+//this gets the movies from the database to be displayed on the home page
+router.get('/', (req, res) => {
+  const queryText = `SELECT * FROM "movies"`
+  pool.query(queryText)
+  .then((result) => {
+    res.send(result.rows);
+  }).catch((error) => {
+    console.log('error in get request for movies display', error);
+    res.sendStatus(500);
+  })
+})
+
 module.exports = router;
