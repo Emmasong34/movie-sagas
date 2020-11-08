@@ -11,14 +11,9 @@ class AddMovie extends Component {
     render(){
         return(
             <>
-            <div className="addMovie buttons">
-            {/* // console.log('in addmovie component') */}
-          
-            </div>
-            
+       
             <form className="form">
-            {/* <input>Movie title:</input> */}
-            {/* <input>Movie poster:</input> */}
+           
             <label className="title">Movie title:</label>
             <input type="text" id="movieTitle" name="title"></input>
             <br></br>

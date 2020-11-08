@@ -1,11 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const pool = require('../modules/pool')
-
-// router.get('/', (req, res) => {
-//   // Add query to get all genres
-//   res.sendStatus(500)
-// });
+const pool = require('../modules/pool');
 
 
 //this gets the movies from the database to be displayed on the home page
