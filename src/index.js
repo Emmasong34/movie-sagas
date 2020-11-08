@@ -31,7 +31,6 @@ function* getMovies() {
 function* getMovieDetails(movieClicked) {
     console.log('movieClicked.id', movieClicked.payload.id)
      try {
-        
          const genreArray = yield axios.get(`/api/genre/${movieClicked.payload.id}`);
         console.log('in getMovieDetails:')
          yield put({ type: 'SET_GENRES', payload: genreArray.data });

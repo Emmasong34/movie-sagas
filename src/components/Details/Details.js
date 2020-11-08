@@ -3,13 +3,13 @@ import {connect} from 'react-redux';
 
 class Details extends Component {
 
-    componentDidMount = () => {
-        this.getGenres();
-    }
+    // componentDidMount = () => {
+    //     this.getGenres();
+    // }
     
-    getGenres = () => {
-        this.props.dispatch({ type: 'GET_GENRES' })
-    }
+    // getGenres = () => {
+    //     this.props.dispatch({ type: 'GET_GENRES' })
+    // }
 
 
     changePageBack = () => {
@@ -21,12 +21,14 @@ class Details extends Component {
         return(
             <div>
          
-         {this.props.reduxState.genres.map((genre) => {
-                return <p  key={genre.name} >
-                   {genre.title}
-                   {genre.name}
+         {this.props.reduxState.genres.map((movie) => {
+                return <div  key={movie.id} >
+                   <h3>{movie.title}</h3>
+                   <img className="image" src={movie.poster}/>
+                   <p>{movie.name}</p>
+                   <p>{movie.description}</p>
                     {/* <img className="image" src={movie.poster}/> */}
-                    </p>
+                    </div>
             })}
 
 
