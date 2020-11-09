@@ -3,16 +3,6 @@ import {connect} from 'react-redux';
 
 class AddMovie extends Component {
 
-    componentDidMount = () => {
-        this.fetchGenres();
-    }
-
-    //takes you back to home page
-    changePageBack = () => {
-        console.log('back to home');
-        this.props.history.push('/');
-    }
-
     state = {
         newMovie: {
             title: '',
@@ -22,13 +12,29 @@ class AddMovie extends Component {
         }
     }
 
+    componentDidMount = () => {
+        this.fetchGenres();
+    }
+
+    //gets genres from table to be displayed in drop down
+    fetchGenres = () => {
+        this.props.dispatch({type: 'FETCH_GENRES'})
+    }
+
+    //takes you back to home page
+    changePageBack = () => {
+        console.log('back to home');
+        this.props.history.push('/');
+    }
+ 
+
     //sending newMovie 
     saveMovie = () => {
           this.props.dispatch({type: 'ADD_MOVIE', payload: this.state})
-          this.changePageBack();
+          this.props.history.push('/');
     }
 
-
+    //taking in input values and adding them to newMovie
     handleChange = (typeOfKey, event) => {
         event.preventDefault();
         this.setState({
@@ -39,9 +45,6 @@ class AddMovie extends Component {
         });
     }
 
-    fetchGenres = () => {
-        this.props.dispatch({type: 'FETCH_GENRES'})
-    }
 
     render(){
         return(
@@ -75,12 +78,11 @@ class AddMovie extends Component {
                 <label className="genres">Choose a genre: </label>
                     <select 
                         name="genres" id="genre" 
-                        required
                         onChange={(event) => this.handleChange('genre_id', event)}
                     >
                         <option value=''>Select a genre: </option>
                             {this.props.reduxState.genres.map((genre) => {
-                                return <option  key={genre.id} value={genre.id} >{genre.name}</option>
+                                return <option  key={genre.name} value={genre.id} >{genre.name}</option>
                         
                     })}
                 </select>  
@@ -88,13 +90,10 @@ class AddMovie extends Component {
             </div>
             <br></br> 
 
-                <button onClick={this.saveMovie}>Save</button>
+                <button  onClick={this.saveMovie}>Save</button>
                 <button onClick={this.changePageBack}>Cancel</button>
     
-            </form>
-
-
-                
+            </form>  
             </>
         )
     }

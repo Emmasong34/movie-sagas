@@ -20,7 +20,7 @@ CREATE TABLE "movie_genre"(
 
 SELECT * FROM "movies"
 JOIN "movie_genre" ON "movie_genre"."movies_id" = "movies"."id"
-JOIN "genres" ON "movie_genre"."genre_id" = "genres"."id"
+JOIN "genres" ON "movie_genre"."genre_id" = "genres"."id";
 
 
 
