@@ -44,7 +44,7 @@ handleClickAdd = () => {
                         {this.props.reduxState.movies.map((movie) => {
                             return <button className="button" key={movie.title} onClick={() => {this.handleClick(movie)}}>
                     <h2>{movie.title}</h2>
-                        <img className="image" src={movie.poster}/>
+                        <img className="image" alt="movie poster" src={movie.poster}/>
                         </button>
                     })}
                 </div>

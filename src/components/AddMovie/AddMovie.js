@@ -46,24 +46,30 @@ class AddMovie extends Component {
 
             <form className="form">
            
-
-                <label className="title">Movie title:</label>
-                    <input type="text" id="newMovieTitle" name="title" 
+            <div className="titleInput">
+                <label className="title" >Movie title:</label>
+                    <input type="text" id="newMovieTitle" name="title" placeholder="title"
                     onChange={(event) => this.handleChange('title', event)}></input>
+            </div>
             <br></br>
 
 
+            <div className="posterInput">
                 <label className="poster">Movie poster:</label>
-                    <input type="text" id="newMoviePoster" name="poster" 
+                    <input type="text" id="newMoviePoster" name="poster" placeholder="url"
                     onChange={(event) => this.handleChange('poster', event)}></input>
+            </div>
             <br></br>
+
+            <div className="descriptionBox">
                 <p>Movie description:</p>
-                <textarea className="description" 
+                <textarea className="description" placeholder="description"
                     onChange={(event) => this.handleChange('description', event)}></textarea>
+            </div>
                 <br></br> 
  
 
-            <div>
+            <div className="genreDrop">
                 <label className="genres">Choose a genre: </label>
                     <select 
                         name="genres" id="genre" 
@@ -71,19 +77,21 @@ class AddMovie extends Component {
                     >
                         <option value=''>Select a genre: </option>
                             {this.props.reduxState.genres.map((genre) => {
-                                return <option  value={genre.id} >{genre.name}</option>
+                                return <option  key={genre.id} value={genre.id} >{genre.name}</option>
                         
                     })}
                 </select>  
-            <br></br> 
+            
             </div>
+            <br></br> 
 
                 <button onClick={this.saveMovie}>Save</button>
+                <button onClick={this.changePageBack}>Cancel</button>
     
             </form>
 
 
-                <button onClick={this.changePageBack}>Cancel</button>
+                
             </>
         )
     }

@@ -15,7 +15,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>Movies!</h1>
+        <h1>Movie Library</h1>
        
           <Router>
 
