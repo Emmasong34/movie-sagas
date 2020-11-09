@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 
 class Details extends Component {
 
+    //routes back to home page
     changePageBack = () => {
         console.log('back to home');
         this.props.history.push('/');
@@ -10,13 +11,14 @@ class Details extends Component {
 
     render(){
         return(
-            <div>
+            <div className="detailsDisplay">
          
+         {/* maps through genre reducer to get movie details */}
          {this.props.reduxState.genres.map((movie) => {
-                return <div  key={movie.id} >
-                   <h3>{movie.title}</h3>
+                return <div  key={movie.id} className="movieDetails">
+                   <h2>{movie.title}</h2>
                    <img className="image" alt="movie poster" src={movie.poster}/>
-                   <p>{movie.name}</p>
+                   <h3>{movie.name}</h3>
                    <p>{movie.description}</p>
                     </div>
             })}

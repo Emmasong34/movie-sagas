@@ -12,7 +12,7 @@ import logger from 'redux-logger';
 // Import saga middleware
 import createSagaMiddleware from 'redux-saga';
 
-// Create the rootSaga generator function
+// root saga function
 function* rootSaga() {
     yield takeEvery('GET_MOVIES', getMovies);
     yield takeEvery('GET_MOVIE_DETAILS', getMovieDetails);
@@ -20,6 +20,7 @@ function* rootSaga() {
     yield takeEvery('FETCH_GENRES', fetchGenres);
 }
 
+//gets movie data from database
 function* getMovies() {
     try {
         const movieArray = yield axios.get('/api/movie');
@@ -30,6 +31,7 @@ function* getMovies() {
     }
 }
 
+//gets movie and genre details from database
 function* getMovieDetails(movieClicked) {
     console.log('movieClicked.id', movieClicked.payload.id)
         try {
@@ -41,17 +43,19 @@ function* getMovieDetails(movieClicked) {
     }
 }
 
+//adds movie to database from client input
 function* addMovie (action){
     // console.log('in addMovie, action.payload.newMovie:', action.payload.newMovie)
     yield axios.post('/api/movie', action.payload.newMovie );
 }
 
+//gets genre fields from database
 function* fetchGenres (){
         const genreList = yield axios.get('/api/genre');
     yield put({type: 'SET_GENRES', payload: genreList.data})
 }
 
-// Create sagaMiddleware
+//sagaMiddleware
 const sagaMiddleware = createSagaMiddleware();
 
 // Used to store movies returned from the server

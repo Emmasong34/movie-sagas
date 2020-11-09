@@ -7,6 +7,7 @@ class AddMovie extends Component {
         this.fetchGenres();
     }
 
+    //takes you back to home page
     changePageBack = () => {
         console.log('back to home');
         this.props.history.push('/');
@@ -17,17 +18,19 @@ class AddMovie extends Component {
             title: '',
             poster: '',
             description: '',
-            genre_id: 1
+            genre_id: 0
         }
     }
 
+    //sending newMovie 
     saveMovie = () => {
           this.props.dispatch({type: 'ADD_MOVIE', payload: this.state})
+          this.changePageBack();
     }
+
 
     handleChange = (typeOfKey, event) => {
         event.preventDefault();
-        // console.log('handleChange event', event)
         this.setState({
             newMovie: {
                 ...this.state.newMovie,
@@ -43,7 +46,6 @@ class AddMovie extends Component {
     render(){
         return(
             <>
-
             <form className="form">
            
             <div className="titleInput">
@@ -73,6 +75,7 @@ class AddMovie extends Component {
                 <label className="genres">Choose a genre: </label>
                     <select 
                         name="genres" id="genre" 
+                        required
                         onChange={(event) => this.handleChange('genre_id', event)}
                     >
                         <option value=''>Select a genre: </option>
