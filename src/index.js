@@ -47,6 +47,7 @@ function* getMovieDetails(movieClicked) {
 function* addMovie (action){
     // console.log('in addMovie, action.payload.newMovie:', action.payload.newMovie)
     yield axios.post('/api/movie', action.payload.newMovie );
+    yield put({type: 'GET_MOVIES'})
 }
 
 //gets genre fields from database

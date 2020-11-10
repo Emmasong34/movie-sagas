@@ -3,6 +3,8 @@ import {connect} from 'react-redux';
 
 class AddMovie extends Component {
 
+
+
     state = {
         newMovie: {
             title: '',
@@ -30,8 +32,14 @@ class AddMovie extends Component {
 
     //sending newMovie 
     saveMovie = () => {
+        console.log(this.state.newMovie.genre_id)
+        if (this.state.newMovie.genre_id !== 0) {
           this.props.dispatch({type: 'ADD_MOVIE', payload: this.state})
-          this.props.history.push('/');
+          this.props.history.push('/')
+        }else {
+            alert ('enter all fields')
+        }
+          
     }
 
     //taking in input values and adding them to newMovie
@@ -78,6 +86,7 @@ class AddMovie extends Component {
                 <label className="genres">Choose a genre: </label>
                     <select 
                         name="genres" id="genre" 
+                    
                         onChange={(event) => this.handleChange('genre_id', event)}
                     >
                         <option value=''>Select a genre: </option>
