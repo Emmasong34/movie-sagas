@@ -34,9 +34,10 @@
 }
 
 .image{
-  width: 200px;
-  height: 300px;
+  width: 250px;
+  height: 350px;
   border: solid goldenrod 4px;
+  align-items: baseline;
 }
 
 .title{
@@ -46,6 +47,7 @@
   display: inline-block;
   border-radius: 4px;
   box-sizing: border-box;
+  
 }
 
 .poster{
@@ -53,6 +55,7 @@
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
+  align-items: flex-start;
   border-radius: 4px;
   box-sizing: border-box;
 }
